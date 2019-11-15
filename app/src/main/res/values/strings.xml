@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">UtilityUnite</string>
+    <string name="common_cancel">취소</string>
+    <string name="common_confirm">확인</string>
+</resources>
