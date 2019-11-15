@@ -1,6 +1,5 @@
 package com.mj.utilityunite;
 
-import android.content.Context;
 import android.util.Log;
 
 import java.security.MessageDigest;
@@ -9,9 +8,9 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Utility {
+public class MJUtil {
 
-    private static String TAG = Utility.class.getSimpleName();
+    private static String TAG = MJUtil.class.getSimpleName();
 
     public static String getHashSHA256(String value) {
         String SHA = "";

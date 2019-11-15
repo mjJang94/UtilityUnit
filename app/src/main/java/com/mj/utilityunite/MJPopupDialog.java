@@ -16,26 +16,26 @@ import android.widget.TextView;
 /**
  * 커스텀 팝업 DIALOG
  */
-public class PopupDialog extends Dialog {
+public class MJPopupDialog extends Dialog {
 
-    private static final String TAG = PopupDialog.class.getSimpleName();
+    private static final String TAG = MJPopupDialog.class.getSimpleName();
 
-    public PopupDialog(Context context) {
+    public MJPopupDialog(Context context) {
         super(context);
     }
 
-    private PopupDialog(Context context, int theme) {
+    private MJPopupDialog(Context context, int theme) {
         super(context, theme);
     }
 
-    public static PopupDialog show(Context context, int title, int message) {
+    public static MJPopupDialog show(Context context, int title, int message) {
 
         if (context instanceof Activity
                 && !((Activity) context).isFinishing()) {
             Builder builder = new Builder(context);
             builder.setTitle(title);
             builder.setMessage(message);
-            PopupDialog dialog = builder.create();
+            MJPopupDialog dialog = builder.create();
             dialog.show();
             return dialog;
         }
@@ -44,11 +44,11 @@ public class PopupDialog extends Dialog {
 
     }
 
-    public static PopupDialog show(Context context, String title, String message) {
+    public static MJPopupDialog show(Context context, String title, String message) {
         Builder builder = new Builder(context);
         builder.setTitle(title);
         builder.setMessage(message);
-        PopupDialog dialog = builder.create();
+        MJPopupDialog dialog = builder.create();
         try {
             dialog.show();
         } catch (WindowManager.BadTokenException e) {
@@ -60,12 +60,12 @@ public class PopupDialog extends Dialog {
 
 
 
-    public static PopupDialog show(Context context, int title, int message, OnClickListener confirmListener) {
+    public static MJPopupDialog show(Context context, int title, int message, OnClickListener confirmListener) {
         Builder builder = new Builder(context);
         builder.setTitle(title);
         builder.setMessage(message);
         builder.setPositiveButtonClick(confirmListener);
-        PopupDialog dialog = builder.create();
+        MJPopupDialog dialog = builder.create();
 
         if (context instanceof Activity
                 && !((Activity) context).isFinishing()) {
@@ -74,12 +74,12 @@ public class PopupDialog extends Dialog {
         return dialog;
     }
 
-    public static PopupDialog show(Context context, String title, String message, OnClickListener confirmListener) {
+    public static MJPopupDialog show(Context context, String title, String message, OnClickListener confirmListener) {
         Builder builder = new Builder(context);
         builder.setTitle(title);
         builder.setMessage(message);
         builder.setPositiveButtonClick(confirmListener);
-        PopupDialog dialog = builder.create();
+        MJPopupDialog dialog = builder.create();
 
         if (context instanceof Activity
                 && !((Activity) context).isFinishing()) {
@@ -88,13 +88,13 @@ public class PopupDialog extends Dialog {
         return dialog;
     }
 
-    public static PopupDialog show(Context context, int title, int message, int positiveButtonText, OnClickListener confirmListener) {
+    public static MJPopupDialog show(Context context, int title, int message, int positiveButtonText, OnClickListener confirmListener) {
         Builder builder = new Builder(context);
         builder.setTitle(title);
         builder.setMessage(message);
         builder.setPositiveButtonText(positiveButtonText);
         builder.setPositiveButtonClick(confirmListener);
-        PopupDialog dialog = builder.create();
+        MJPopupDialog dialog = builder.create();
 
         if (context instanceof Activity
                 && !((Activity) context).isFinishing()) {
@@ -103,13 +103,13 @@ public class PopupDialog extends Dialog {
         return dialog;
     }
 
-    public static PopupDialog show(Context context, int title, int message, OnClickListener confirmListener, OnClickListener cancelListner) {
+    public static MJPopupDialog show(Context context, int title, int message, OnClickListener confirmListener, OnClickListener cancelListner) {
         Builder builder = new Builder(context);
         builder.setTitle(title);
         builder.setMessage(message);
         builder.setPositiveButtonClick(confirmListener);
         builder.setNegativeButtonClick(cancelListner);
-        PopupDialog dialog = builder.create();
+        MJPopupDialog dialog = builder.create();
 
         if (context instanceof Activity
                 && !((Activity) context).isFinishing()) {
@@ -119,13 +119,13 @@ public class PopupDialog extends Dialog {
         return dialog;
     }
 
-    public static PopupDialog show(Context context, String title, String message, OnClickListener confirmListener, OnClickListener cancelListner) {
+    public static MJPopupDialog show(Context context, String title, String message, OnClickListener confirmListener, OnClickListener cancelListner) {
         Builder builder = new Builder(context);
         builder.setTitle(title);
         builder.setMessage(message);
         builder.setPositiveButtonClick(confirmListener);
         builder.setNegativeButtonClick(cancelListner);
-        PopupDialog dialog = builder.create();
+        MJPopupDialog dialog = builder.create();
 
         if (context instanceof Activity
                 && !((Activity) context).isFinishing()) {
@@ -138,13 +138,13 @@ public class PopupDialog extends Dialog {
     /**
      * context, String, String, String, DialogInterface.OnClickListener
      **/
-    public static PopupDialog show(Context context, String title, String message, String positiveButtonText, OnClickListener confirmListener) {
+    public static MJPopupDialog show(Context context, String title, String message, String positiveButtonText, OnClickListener confirmListener) {
         Builder builder = new Builder(context);
         builder.setTitle(title);
         builder.setMessage(message);
         builder.setPositiveButtonText(positiveButtonText);
         builder.setPositiveButtonClick(confirmListener);
-        PopupDialog dialog = builder.create();
+        MJPopupDialog dialog = builder.create();
 
         if (context instanceof Activity
                 && !((Activity) context).isFinishing()) {
@@ -158,7 +158,7 @@ public class PopupDialog extends Dialog {
     /**
      * context, int, int, int, DialogInterface.OnClickListener, int, DialogInterface.OnClickListener
      **/
-    public static PopupDialog show(Context context, int title, int message, int negativeButtonText, OnClickListener cancelListener, int positiveButtonText, OnClickListener confirmListener) {
+    public static MJPopupDialog show(Context context, int title, int message, int negativeButtonText, OnClickListener cancelListener, int positiveButtonText, OnClickListener confirmListener) {
         Builder builder = new Builder(context);
         builder.setTitle(title);
         builder.setMessage(message);
@@ -166,7 +166,7 @@ public class PopupDialog extends Dialog {
         builder.setPositiveButtonClick(confirmListener);
         builder.setNegativeButtonText(negativeButtonText);
         builder.setNegativeButtonClick(cancelListener);
-        PopupDialog dialog = builder.create();
+        MJPopupDialog dialog = builder.create();
 
         if (context instanceof Activity
                 && !((Activity) context).isFinishing()) {
@@ -179,7 +179,7 @@ public class PopupDialog extends Dialog {
     /**
      * context, String, String, int, DialogInterface.OnClickListener, int, DialogInterface.OnClickListener
      **/
-    public static PopupDialog show(Context context, String title, String message, int negativeButtonText, OnClickListener cancelListener, int positiveButtonText, OnClickListener confirmListener) {
+    public static MJPopupDialog show(Context context, String title, String message, int negativeButtonText, OnClickListener cancelListener, int positiveButtonText, OnClickListener confirmListener) {
         Builder builder = new Builder(context);
         builder.setTitle(title);
         builder.setMessage(message);
@@ -187,7 +187,7 @@ public class PopupDialog extends Dialog {
         builder.setPositiveButtonClick(confirmListener);
         builder.setNegativeButtonText(negativeButtonText);
         builder.setNegativeButtonClick(cancelListener);
-        PopupDialog dialog = builder.create();
+        MJPopupDialog dialog = builder.create();
 
         if (context instanceof Activity
                 && !((Activity) context).isFinishing()) {
@@ -200,7 +200,7 @@ public class PopupDialog extends Dialog {
     /**
      * context, String, String, String, DialogInterface.OnClickListener, String, DialogInterface.OnClickListener
      **/
-    public static PopupDialog showOusideTouch(Context context, String title, String message, String negativeButtonText, OnClickListener cancelListener, String positiveButtonText, OnClickListener confirmListener) {
+    public static MJPopupDialog showOusideTouch(Context context, String title, String message, String negativeButtonText, OnClickListener cancelListener, String positiveButtonText, OnClickListener confirmListener) {
         Builder builder = new Builder(context);
         builder.setTitle(title);
         builder.setMessage(message);
@@ -208,7 +208,7 @@ public class PopupDialog extends Dialog {
         builder.setNegativeButtonClick(cancelListener);
         builder.setPositiveButtonText(positiveButtonText);
         builder.setPositiveButtonClick(confirmListener);
-        PopupDialog dialog = builder.create();
+        MJPopupDialog dialog = builder.create();
         dialog.setCanceledOnTouchOutside(true);
 
         if (context instanceof Activity
@@ -286,13 +286,13 @@ public class PopupDialog extends Dialog {
             return this;
         }
 
-        public PopupDialog create() {
+        public MJPopupDialog create() {
             return create(0);
         }
 
-        public PopupDialog create(int dialogLayout) {
+        public MJPopupDialog create(int dialogLayout) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            final PopupDialog dialog = new PopupDialog(context, R.style.DialogProgress);
+            final MJPopupDialog dialog = new MJPopupDialog(context, R.style.DialogProgress);
             if (dialogLayout != 0)
                 contentView = inflater.inflate(dialogLayout, null);
             else
