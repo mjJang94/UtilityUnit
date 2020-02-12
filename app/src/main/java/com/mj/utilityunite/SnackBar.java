@@ -5,7 +5,7 @@ import android.view.View;
 
 import com.google.android.material.snackbar.Snackbar;
 
-public class MJSnackBar {
+public class SnackBar {
 
     public static void makeShortSnackBar(View view, String message){
         Snackbar.make(view, message, Snackbar.LENGTH_SHORT).show();

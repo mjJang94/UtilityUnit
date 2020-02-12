@@ -8,9 +8,9 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class MJUtil {
+public class PrivateUtil {
 
-    private static String TAG = MJUtil.class.getSimpleName();
+    private static String TAG = PrivateUtil.class.getSimpleName();
 
     public static String getHashSHA256(String value) {
         String SHA = "";
