@@ -1,6 +1,14 @@
 package com.mj.utilityunite;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.util.Base64;
 import android.util.Log;
+
+import androidx.core.app.NotificationCompat;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -139,6 +147,75 @@ public class PrivateUtil {
         return new DecimalFormat("#,###").format(money);
     }
 
+    /**
+     * Base64 인코딩
+     */
+    private static String getBase64encode(String content) {
+        return Base64.encodeToString(content.getBytes(), 0);
+    }
+
+    /**
+     * Base64 디코딩
+     */
+    private static String getBase64decode(String content) {
+        return new String(Base64.decode(content, 0));
+    }
+
+    /**
+     * // empty인지 "null" 인지 확인 하고 값이 없는 경우 ""를 반환 한다.
+     *
+     * @param str
+     * @return
+     */
+    public static String checkEmpty(String str) {
+        String result = str;
+        if (str == null || str.isEmpty() || str.equalsIgnoreCase("null")) {
+            result = "";
+        }
+        return result;
+    }
+
+
+    /**
+     * null, "", "null" 인지 확인 하고
+     * 해당하는 경우 "0"을 반환한다.
+     *
+     * @param num
+     * @return
+     */
+    public static String checkNullNum(String num) {
+        String result = "0";
+
+        if (num == null || "".equals(num.trim()) || "null".equals(num)) {
+
+        } else {
+            try {
+                if (num.contains(",")) {
+                    num = num.replace(",", "");
+                }
+
+                Double tmp = Double.valueOf(num);
+                result = tmp.intValue() + "";
+            } catch (NumberFormatException e) {
+                result = "0";
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * 날짜 형태 변환
+     * YYYYMMDD -> YYYY/MM/dd
+     */
+    public static String getDateFormatYYYYMMdd(String date) {
+        String YEAR = date.substring(0, 4);
+        String MONTH = date.substring(4, 6);
+        String DAY = date.substring(6, 8);
+
+        String returnDate = YEAR + "/" + MONTH + "/" + DAY;
+        return returnDate;
+    }
 
 
 }
