@@ -236,5 +236,11 @@ public class PrivateUtil {
         }
     }
 
+    public static String getTAG(Context context){
+
+        String TAG = context.getClass().getSimpleName();
+
+        return TAG;
+    }
 
 }
