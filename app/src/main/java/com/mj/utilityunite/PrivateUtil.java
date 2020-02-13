@@ -3,6 +3,9 @@ package com.mj.utilityunite;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.util.Base64;
@@ -215,6 +218,22 @@ public class PrivateUtil {
 
         String returnDate = YEAR + "/" + MONTH + "/" + DAY;
         return returnDate;
+    }
+
+
+    public static void getHashKey(Context context, String pkgName){
+        try {
+            PackageInfo info = context.getPackageManager().getPackageInfo(pkgName, PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.e("key_hash=", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
     }
 
 
