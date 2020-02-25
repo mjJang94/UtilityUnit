@@ -1,6 +1,8 @@
 package com.mj.utilityunite;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -217,7 +219,7 @@ public class MyUtil {
     }
 
 
-    public static void getHashKey(Context context, String pkgName){
+    public static void getHashKey(Context context, String pkgName) {
         try {
             PackageInfo info = context.getPackageManager().getPackageInfo(pkgName, PackageManager.GET_SIGNATURES);
             for (Signature signature : info.signatures) {
@@ -232,7 +234,7 @@ public class MyUtil {
         }
     }
 
-    public static String getTAG(Context context){
+    public static String getTAG(Context context) {
 
         String TAG = context.getClass().getSimpleName();
 
@@ -246,6 +248,42 @@ public class MyUtil {
 
         return errors.toString();
 
+    }
+
+    public static void saveStringData(Activity activity, String key, String value) {
+
+        SharedPreferences pref = activity.getSharedPreferences("util", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString(key, value);
+        editor.apply();
+    }
+
+    public static String loadStringData(Activity activity, String key) {
+
+        String value;
+
+        SharedPreferences pref = activity.getSharedPreferences("util", Context.MODE_PRIVATE);
+        value = pref.getString(key, "NO_DATA");
+
+        return value;
+    }
+
+    public static void savelongData(Activity activity, String key, long value) {
+
+        SharedPreferences pref = activity.getSharedPreferences("util", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putLong(key, value);
+        editor.apply();
+    }
+
+    public static long loadlongData(Activity activity, String key) {
+
+        long value;
+
+        SharedPreferences pref = activity.getSharedPreferences("util", Context.MODE_PRIVATE);
+        value = pref.getLong(key, 0);
+
+        return value;
     }
 
 }
