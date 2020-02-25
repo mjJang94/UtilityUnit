@@ -1,27 +1,23 @@
 package com.mj.utilityunite;
 
-import android.app.Notification;
-import android.app.NotificationManager;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
-import android.media.RingtoneManager;
-import android.net.Uri;
 import android.util.Base64;
 import android.util.Log;
 
-import androidx.core.app.NotificationCompat;
-
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class PrivateUtil {
+public class MyUtil {
 
-    private static String TAG = PrivateUtil.class.getSimpleName();
+    private static String TAG = MyUtil.class.getSimpleName();
 
     public static String getHashSHA256(String value) {
         String SHA = "";
@@ -241,6 +237,15 @@ public class PrivateUtil {
         String TAG = context.getClass().getSimpleName();
 
         return TAG;
+    }
+
+    public static String getPrintStackTrace(Exception e) {
+
+        StringWriter errors = new StringWriter();
+        e.printStackTrace(new PrintWriter(errors));
+
+        return errors.toString();
+
     }
 
 }
