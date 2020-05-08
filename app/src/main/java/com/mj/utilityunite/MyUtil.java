@@ -286,4 +286,17 @@ public class MyUtil {
         return value;
     }
 
+    public static void deleteSharedPreferencesByKey(Activity activity, String key){
+        SharedPreferences pref = activity.getSharedPreferences("util", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.remove(key);
+        editor.apply();
+    }
+
+    public static void clearSharedPreferences(Activity activity){
+        SharedPreferences pref = activity.getSharedPreferences("util", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.clear();
+        editor.apply();
+    }
 }
